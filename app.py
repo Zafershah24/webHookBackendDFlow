@@ -11,7 +11,7 @@ def sms_reply():
     msg = request.form.get('Body')
     # Create reply
     resp = MessagingResponse()
-    resp.message("You said: {}".format(msg))
+    resp.message("Hi How may  help you?")
     return str(resp)
 if __name__ == "__main__":
     app.run(debug=True)

@@ -1,19 +1,34 @@
+# from flask import Flask, request
+# from twilio.twiml.messaging_response import MessagingResponse
+# app = Flask(__name__)
+# @app.route("/")
+# def hello():
+#     return "Hello, World!"
+# @app.route("/sms", methods=['POST'])
+# def sms_reply():
+#     """Respond to incoming calls with a simple text message."""
+#     # Fetch the message
+#     msg = request.form.get('Body')
+#     # Create reply
+#     resp = MessagingResponse()
+#     resp.message("Hi How may  help you?")
+#     return str(resp)
+# if __name__ == "__main__":
+#     app.run(debug=True)
 
 
+import urllib
+import json
+import os
+from flask import (Flask,request, make_response)
+from twilio.twiml.messaging_response import MessagingResponse
 
-try:
-    import urllib
-    import json
-    import os
-    from flask import (Flask, request, make_response)
-    from twilio.twiml.messaging_response import MessagingResponse
 
-except Exception as e:
-
-    print("Some modules are missing {}".format(e))
 
 
 # Flask app should start in global layout
+
+
 app = Flask(__name__)
 
 
@@ -63,7 +78,7 @@ def processRequest(req):
 
 def get_data():
 
-    speech = "Hi How may  help you? "
+    speech = "soumil shah  "
 
     return {
         "fulfillmentText": speech,
@@ -71,6 +86,7 @@ def get_data():
 
 
 if _name_ == '__main__':
-    port = int(os.getenv('PORT', 5000))
-    print ("Starting app on port %d" %(port))
-    app.run(debug=True, port=port, host='0.0.0.0')
+    app.run(debug=True)
+    # port = int(os.getenv('PORT', 5000))
+    # print ("Starting app on port %d" %(port))
+    # app.run(debug=True, port=port, host='0.0.0.0')

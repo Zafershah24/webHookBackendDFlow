@@ -38,9 +38,9 @@ app = Flask(__name__)
 # -----------> Process requests
 # ---------------------------->get_data()
 
-# @app.route("/")
-# def hello():
-#     return "Hello, World!"
+@app.route("/")
+def hello():
+    return "Hello, World!"
 @app.route("/sms", methods=['POST'])
 def sms_reply():
     """Respond to incoming calls with a simple text message."""
@@ -85,7 +85,7 @@ def get_data():
     }
 
 
-if _name_ == '__main__':
+if __name__ == "__main__":
     app.run()
     # port = int(os.getenv('PORT', 5000))
     # print ("Starting app on port %d" %(port))

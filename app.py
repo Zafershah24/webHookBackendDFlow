@@ -1,27 +1,11 @@
-# from flask import Flask, request
-# from twilio.twiml.messaging_response import MessagingResponse
-# app = Flask(__name__)
-# @app.route("/")
-# def hello():
-#     return "Hello, World!"
-# @app.route("/sms", methods=['POST'])
-# def sms_reply():
-#     """Respond to incoming calls with a simple text message."""
-#     # Fetch the message
-#     msg = request.form.get('Body')
-#     # Create reply
-#     resp = MessagingResponse()
-#     resp.message("Hi How may  help you?")
-#     return str(resp)
-# if __name__ == "__main__":
-#     app.run(debug=True)
+
 
 
 try:
     import urllib
     import json
     import os
-    from flask import (Flask,request, make_response)
+    from flask import (Flask, request, make_response)
     from twilio.twiml.messaging_response import MessagingResponse
 
 except Exception as e:
@@ -39,7 +23,18 @@ app = Flask(__name__)
 # -----------> Process requests
 # ---------------------------->get_data()
 
-
+@app.route("/")
+def hello():
+    return "Hello, World!"
+@app.route("/sms", methods=['POST'])
+def sms_reply():
+    """Respond to incoming calls with a simple text message."""
+    # Fetch the message
+    msg = request.form.get('Body')
+    # Create reply
+    resp = MessagingResponse()
+    resp.message("Hi How may  help you?")
+    return str(resp)
 @app.route('/webhook', methods=['POST'])
 def webhook():
 

@@ -38,9 +38,9 @@ app = Flask(__name__)
 # -----------> Process requests
 # ---------------------------->get_data()
 
-@app.route("/")
-def hello():
-    return "Hello, World!"
+# @app.route("/")
+# def hello():
+#     return "Hello, World!"
 @app.route("/sms", methods=['POST'])
 def sms_reply():
     """Respond to incoming calls with a simple text message."""
